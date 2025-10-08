@@ -1,6 +1,6 @@
 import re
+import operator
 
-SAMPLE_CONSTANT: int = 10
 TOKEN_PATTERN = re.compile(r"""
                            \s*
                            (
@@ -12,6 +12,17 @@ TOKEN_PATTERN = re.compile(r"""
                            )
                            \s*
                            """, re.VERBOSE)
+
+OPERATIONS = {
+    '+': operator.add,
+    '-': operator.sub,
+    '/': operator.truediv,
+    '*': operator.mul,
+    '**': operator.pow,
+    '//': operator.floordiv,
+    '%': operator.mod,
+}
+
 OPERATOR_PRECEDENCE = {
     '~': 4,
     '$': 4,
