@@ -42,7 +42,7 @@ from src.converter import convert_to_rpn
         ("OP", "*")
     ]),
 ])
-def test_unary_operators(self, expression, expected):
+def test_unary_operators(expression, expected):
     """Тест унарных операторов"""
     tokens = tokenize(expression)
     result = convert_to_rpn(tokens)
@@ -87,7 +87,7 @@ def test_unary_operators(self, expression, expected):
         ("NUM", 2.0), ("NUM", 3.0), ("NUM", 4.0), ("OP", "+"), ("OP", "*")
     ]),
 ])
-def test_basic_expressions(self, expression, expected):
+def test_basic_expressions(expression, expected):
     """Тест простых выражений"""
     tokens = tokenize(expression)
     result = convert_to_rpn(tokens)
@@ -139,7 +139,7 @@ def test_basic_expressions(self, expression, expected):
         ("OP", "**"), ("OP", "**")
     ]),
 ])
-def test_power_operator(self, expression, expected):
+def test_power_operator(expression, expected):
     """Тест операций возведения в степень"""
     tokens = tokenize(expression)
     result = convert_to_rpn(tokens)
@@ -207,7 +207,7 @@ def test_power_operator(self, expression, expected):
         ("OP", "+")
     ]),
 ])
-def test_complex_expressions(self, expression, expected):
+def test_complex_expressions(expression, expected):
     """Тест сложных выражений"""
     tokens = tokenize(expression)
     result = convert_to_rpn(tokens)

@@ -22,7 +22,7 @@ from src.rpn_calculate import calculate_rpn
     ([("NUM", 20.0), ("NUM", 6.0), ("OP", "%"), ("NUM", 2.0), ("OP", "+")], 4.0),
     ([("NUM", 2.0), ("OP", "~"), ("NUM", 3.0), ("OP", "*")], -6.0),
 ])
-def test_basic_operations(self, tokens, expected):
+def test_basic_operations(tokens, expected):
     """Тест базовых операций"""
     result = calculate_rpn(tokens)
     assert result == expected
@@ -40,7 +40,7 @@ def test_basic_operations(self, tokens, expected):
     ([("NUM", 10.0), ("NUM", 0.0), ("OP", "//")], "на ноль"),
     ([("NUM", 7.0), ("NUM", 0.0), ("OP", "%")], "на ноль"),
 ])
-def test_exceptions(self, tokens, error_pattern):
+def test_exceptions(tokens, error_pattern):
     """Тест ошибок в выражениях с //, /, %"""
     with pytest.raises(CalcError, match=error_pattern):
         calculate_rpn(tokens)
@@ -59,7 +59,7 @@ def test_exceptions(self, tokens, error_pattern):
     ([("NUM", -4.0), ("NUM", 2.5), ("OP", "**")], "комплексное число"),
     ([("NUM", -2.0), ("NUM", 1.5), ("OP", "**")], "комплексное число"),
 ])
-def test_power_errors(self, tokens, error_pattern):
+def test_power_errors(tokens, error_pattern):
     """Тест ошибок при возведении в степень"""
     with pytest.raises(CalcError, match=error_pattern):
         calculate_rpn(tokens)

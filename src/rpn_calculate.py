@@ -25,14 +25,14 @@ def calculate_rpn(rpn_expr: list[Token]) -> float | int:
                 try:
                     result = stack.pop()
                 except IndexError:
-                    raise CalcError("Ошибка: Выражение введено неверно")
+                    raise CalcError("Выражение введено неверно")
                 if value_op == "~":
                     stack.append(-result)
                 else:
                     stack.append(+result)
             else:
                 if len(stack) < 2:
-                    raise CalcError("Ошибка: Выражение введено неверно")
+                    raise CalcError("Выражение введено неверно")
 
                 b = stack.pop()
                 a = stack.pop()
@@ -72,7 +72,7 @@ def calculate_rpn(rpn_expr: list[Token]) -> float | int:
                 stack.append(result)
 
     if len(stack) != 1:
-        raise CalcError("Ошибка: Выражение введено неверно")
+        raise CalcError("Выражение введено неверно")
 
     output: float = stack[0]
 
