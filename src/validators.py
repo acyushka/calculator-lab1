@@ -9,8 +9,10 @@ def validate_two_operators(tokens: list[Token]) -> None:
     """
     for i in range(len(tokens)-2):
         if (tokens[i][0] == "OP" and tokens[i+1][0] == "OP" and
-                tokens[i][1] != "(" and tokens[i+1][1] != ")"):
-            raise CalcError("Два оператора не могут идти подряд!")
+                tokens[i][1] != "(" and tokens[i+1][1] != ")" and
+                tokens[i][1] != ")" and tokens[i+1][1] != "("):
+            raise CalcError(
+                f"Два оператора: '{tokens[i][1]}' и '{tokens[i+1][1]}' не могут идти подряд!")
 
 
 def validate_expr_struct(tokens: list[Token]) -> None:
