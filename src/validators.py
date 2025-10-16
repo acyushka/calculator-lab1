@@ -52,8 +52,10 @@ def validate_brackets(tokens: list[Token]) -> None:
                     stack.pop()
                 except IndexError:
                     raise CalcError("Несбалансированные скобки")
+
     if stack:
         raise CalcError("Несбалансированные скобки")
+
     # 2 часть: проверяем, что нет пустых скобок
     for i in range(len(tokens) - 2):
         if (tokens[i][0] == "OP" and tokens[i][1] == "(" and

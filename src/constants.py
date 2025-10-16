@@ -1,6 +1,7 @@
 import re
 import operator
 
+
 TOKEN_PATTERN = re.compile(r"""
                            \s*
                            (
@@ -13,6 +14,7 @@ TOKEN_PATTERN = re.compile(r"""
                            \s*
                            """, re.VERBOSE)
 
+
 OPERATIONS = {
     '+': operator.add,
     '-': operator.sub,
@@ -22,6 +24,7 @@ OPERATIONS = {
     '//': operator.floordiv,
     '%': operator.mod,
 }
+
 
 OPERATOR_PRECEDENCE = {
     '**': 4,

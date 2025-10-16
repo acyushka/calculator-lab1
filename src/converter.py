@@ -10,13 +10,13 @@ def convert_to_rpn(tokens: list[Token]) -> list[Token]:
     """
     stack = []
     output: list[Token] = []
+
     for token in tokens:
         token_type, value = token
 
         if token_type == "NUM":
             output.append(token)
         elif token_type == "OP":
-
             # костыль для mypy
             if isinstance(value, str):
                 value_op: str = value

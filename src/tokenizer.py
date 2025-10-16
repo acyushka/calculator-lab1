@@ -17,7 +17,6 @@ def tokenize(expr: str) -> list[Token]:
     :param expr: выражение типа str
     :return: список токенов
     """
-
     if not expr.strip():
         raise CalcError("Пустой ввод")
 
@@ -36,7 +35,6 @@ def tokenize(expr: str) -> list[Token]:
             # ловим ввод двух чисел подряд
             if rpn_expr and rpn_expr[-1][0] == "NUM":
                 raise CalcError("Два числа не могут идти подряд!")
-
             rpn_expr.append(("NUM", float(t)))
 
         elif t in ('+', '-'):  # обрабатываем унарные как операции
@@ -45,16 +43,18 @@ def tokenize(expr: str) -> list[Token]:
                     rpn_expr.append(("OP", "~"))
                 else:
                     rpn_expr.append(("OP", "$"))
+
             elif rpn_expr[-1][-1] == '(':
                 if t == '-':
                     rpn_expr.append(("OP", "~"))
                 else:
                     rpn_expr.append(("OP", "$"))
+
             else:
                 rpn_expr.append(("OP", t))
+
         else:
             rpn_expr.append(("OP", t))
 
     rpn_expr.append(("EOF", "EOF"))
-
     return rpn_expr

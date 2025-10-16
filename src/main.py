@@ -36,6 +36,7 @@ def main() -> None:
 
         except CalcError as err:
             print(f"Ошибка: {err}")
+
         except Exception as err:
             print(f"Неопознанная ошибка: {err}")
 
